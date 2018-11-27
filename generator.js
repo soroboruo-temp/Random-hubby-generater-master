@@ -20,15 +20,23 @@ function generateSkin() {
 }
 
 function generateBody() {
-    var height = normalDistribution(175, 5)
+    var height = normalDistribution(178, 5)
     height = Math.round(height);
     var text1 = document.getElementById("height");
-    text1.innerHTML=height + "cm";
+    text1.innerHTML=height+ "cm";
     var bmi = normalDistribution(20, 1);
     var weight = Math.round(bmi*(height/100)*(height/100));
     var text2 = document.getElementById("weight");
     text2.innerHTML = weight + "kg";
 }
+
+function generateSize() {
+    var sizeText = document.getElementById("psize");
+    var pSize = ~~(Math.random()*(25-5+1)) + 5;
+    sizeText.innerHTML = pSize + 'cm';
+
+}
+
 function generateAge() {
     var gH = Math.round(normalDistribution(20, 2));
     var text1 = document.getElementById("age");
@@ -38,8 +46,14 @@ function generateHair() {
     randomData("hairstyle",Hair_data);
     var newColor = randomRGB();
     var text2 = document.getElementById("hairColor");
-    text2.innerHTML = "";
-    text2.style.backgroundColor = newColor;
+    
+    if(document.getElementById('hairstyle').textContent === '光头'){
+        text2.innerHTML = "闪闪反光";
+    }
+    else{
+        text2.innerHTML = "";
+        text2.style.backgroundColor = newColor;
+    }
 }
 function generateEyes() {
     var text1 = document.getElementById("eyeColor");
@@ -76,5 +90,5 @@ function randomRGB() {
 function randomData(elementId,dataName) {
     var t1Num = Math.floor(Math.random()*dataName.length);
     var text1 = document.getElementById(elementId);
-    text1.innerHTML = dataName[t1Num];    
+    text1.innerHTML = dataName[t1Num]; 
 }
