@@ -50,7 +50,7 @@ function generateHair() {
     
     if(document.getElementById('hairstyle').textContent === '光头'){
         text2.innerHTML = "闪闪反光";
-        text2.style.backgroundColor = 'transparent';
+        text2.style.backgroundColor = null;
     }
     else{
         text2.innerHTML = "";
